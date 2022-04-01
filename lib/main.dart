@@ -5,6 +5,8 @@ import 'package:flutter_apis/DataModel.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 
+import 'Put.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -31,6 +33,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+
+      routes: <String, WidgetBuilder> {
+        '/put': (BuildContext context) => Put(title: 'put API'),
+
+
+      },
     );
   }
 }
@@ -195,6 +203,22 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
+                SizedBox(height: 10,),
+
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/put");
+                  },
+                  child: Text("Login"),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.red),
+                    padding:MaterialStateProperty.all<EdgeInsets>(
+                      EdgeInsets.all(20),
+
+                    ),
+                  ),
+                ),
+
               ],
             )
 
